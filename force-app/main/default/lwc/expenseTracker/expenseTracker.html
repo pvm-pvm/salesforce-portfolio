@@ -1,0 +1,57 @@
+<template>
+    <lightning-card  title="Expense Tracker" icon-name="standard:currency">
+      <div class="slds-p-around_medium">
+            <lightning-input 
+            type="text" 
+            label="Expense Name" 
+            value={expenseName} 
+            onchange={handleNameChange}
+            required
+            >
+          </lightning-input>
+            <lightning-input 
+            type="number"
+             name="amount"
+              label="Amount"
+               value={expenseAmount} 
+               onchange={handleAmountChange}
+               required
+                >
+              </lightning-input>
+            <lightning-input
+             type="date" 
+             name="date" 
+             label="Date" 
+             value={expenseDate} 
+              onchange={handleDateChange}
+              required
+              >
+            </lightning-input>
+             <!-- Brand variant: Identifies the primary action in a group of buttons -->
+            <lightning-button 
+            variant="brand" 
+            label="Add Expense" 
+            title="Click to add Expense" onclick={handleAddExpense} 
+            class="slds-align_absolute-center slds-p-around_medium"
+            disabled = {isDisabled}
+            ></lightning-button>
+      </div>
+      <div>
+        <template if:true={expenses}>
+          <div style="height: 300px;">
+
+         <lightning-datatable 
+                key-field="id"
+                data={expenses}
+                show-row-number-column
+                hide-checkbox-column
+                columns={columns}>
+        </lightning-datatable>
+      </div>
+      </template>
+      </div>
+    </lightning-card>
+    
+    
+    
+</template>
