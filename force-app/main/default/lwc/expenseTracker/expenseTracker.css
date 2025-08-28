@@ -1,0 +1,12 @@
+.overlay {
+    position: fixed;             /* Make overlay cover entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(247, 130, 130, 0.4); /* semi-transparent black */
+    display: flex;               /* Use flex to center child */
+    align-items: center;         /* Vertical center */
+    justify-content: center;     /* Horizontal center */
+    z-index: 9999;               /* Ensure it stays on top */
+}
