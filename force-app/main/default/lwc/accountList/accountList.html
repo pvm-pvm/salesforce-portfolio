@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Accounts" icon-name='standard:account'>
+        <div class="slds-p-left_medium slds-p-right_x-large">
+
+            <lightning-input label="Search by Account Name" type="text" value={searchKey} 
+            onchange={handleChange} placeholder="Enter name and click on search"></lightning-input>
+
+            <div class="slds-p-top_small">
+                <lightning-button label="Refresh" variant="brand" title="Refresh action" onclick={handleRefreshClick}></lightning-button>
+            </div>
+        </div>
+        <div>
+                <template if:true = {isLoading}>   
+                    <lightning-spinner alternative-text="Loading" size="xx-small"></lightning-spinner>
+                </template>
+                <template if:false = {isLoading}>    
+
+                     <div class="slds-m-top_small">
+                        <template if:true={hasData}>
+                        <div style="height: 300px;">
+                             <lightning-datatable 
+                                 key-field="Id"
+                                 data={accounts}
+                                columns={columns}
+                                hide-checkbox-column
+                                >
+
+                            </lightning-datatable>
+                        </div>
+                        </template>
+                         <template if:false={hasData}>
+                             <p class="slds-p-around_medium">No Accounts found.</p>
+                        </template>
+                    </div>
+                </template>
+            </div>
+       
+
+    </lightning-card>
+</template>
