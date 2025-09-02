@@ -1,0 +1,23 @@
+<template>
+  <lightning-card title="Account name to search" icon-name="standard:account">
+    <div class="slds-p-around_small">
+      <lightning-input
+        type="text"
+        placeholder="Enter account name"
+        value={inputValue}
+        onchange={handleInputChange}
+      >
+      </lightning-input>
+    </div>
+    <c-child-account-display
+      acc-name={accName}
+      onaccountselected={handleAccountSelected}
+    ></c-child-account-display>
+    <!-- Show selected Account Id (from child) -->
+    <template if:true={selectedAccountId}>
+      <p class="slds-p-around_small">
+        ✅ Selected Account Id: {selectedAccountId}
+      </p>
+    </template>
+  </lightning-card>
+</template>

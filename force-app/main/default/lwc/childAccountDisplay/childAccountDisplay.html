@@ -1,0 +1,27 @@
+<template>
+  <lightning-card title="Account List" icon-name="custom:custom19">
+    <div class="slds-p-around_small">
+      <template if:true={isLoading}>
+        <lightning-spinner
+          variant="brand"
+          size="medium"
+          alternative-text="loading"
+        ></lightning-spinner>
+      </template>
+      <template if:true={hasData}>
+        <lightning-datatable
+          style="height: 300px"
+          key-field="Id"
+          data={accounts}
+          columns={columns}
+          hide-checkbox-column
+          show-row-number-column
+          onrowaction={handleRowAction}
+        ></lightning-datatable>
+      </template>
+      <template if:true={message}>
+        <p>{message}</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
