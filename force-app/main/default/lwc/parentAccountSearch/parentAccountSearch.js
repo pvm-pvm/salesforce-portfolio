@@ -21,4 +21,8 @@ export default class ParentAccountSearch extends LightningElement {
   handleAccountSelected(event) {
     this.selectedAccountId = event.detail; // detail = Account Id
   }
+
+  disconnectedCallback() {
+    this.debounceUpdate.clean();
+  }
 }
