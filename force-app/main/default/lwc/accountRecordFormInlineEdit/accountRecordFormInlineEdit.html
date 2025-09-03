@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="Account Edit Form" icon-name="standard:account">
+    <lightning-record-form
+      record-id={recordId}
+      object-api-name="Account"
+      fields={fields}
+      columns="2"
+      mode="edit"
+      onsuccess={handleSuccess}
+      onerror={handleError}
+    >
+    </lightning-record-form>
+  </lightning-card>
+</template>
